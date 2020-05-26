@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Lobster+Two:ital,wght@1,700&family=Montserrat&family=Yeseva+One&display=swap');
+
+body {
+    font-family: Montserrat;
+    margin: 0;
+    --accent-color: #b71c1c66;
+}
+
+body > div {
+    box-shadow: 0 5px 5px 0 var(--accent-color);
+    min-height: 200px;
+    margin-top: 31px;
+    margin-bottom: 31px;
+    padding-left: 40px;
+}
+
+body > div::after {
+    display: block;
+    content: "";
+    position: relative;
+    z-index: 100;
+
+    width: 52.5px;
+    height: 37.5px;
+
+    top: 37.5px;
+    left: 30px;
+
+    background-image: url("img/arrow.svg");
+    background-position: center;
+    background-size: cover;
+}
+.header {
+    box-shadow: 0 5px 5px 0px var(--accent-color);
+    width: auto;
+    min-height: 60px;
+    padding: 0;
+    height: 60px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header::after {
+    display: none;
+    visibility: hidden;
+}
+
+.header * {
+    padding-left: 30px;
+    display: inline-block;
+    max-height: 100%
+}
+
+.header h1 {
+    font-family: Damion;
+    font-weight: 400;
+    font-size: 2.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.head {
+    height: 200px;
+}
+
+.head::after {
+    left: calc(33vw - 52.5px);
+}
+
+.description::after {
+    left: 66vw;
+}
+
+.description > div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.description iframe,
+.description img {
+    width: 30%;
+    height: calc(30vw / 16 * 9);
+}
+
+.description p {
+    width: 60%;
+    margin: 5%;
+    text-align: justify;
+}
+
+.footer {
+    box-shadow: none;
+}
+
+.footer::after {
+    visibility: hidden;
+}
