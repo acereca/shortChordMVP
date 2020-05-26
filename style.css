@@ -26,7 +26,7 @@ body > div::after {
     top: 37.5px;
     left: 30px;
 
-    background-image: url("img/arrow.svg");
+    background-image: url("img/arrow.png");
     background-position: center;
     background-size: cover;
 }
@@ -62,7 +62,6 @@ body > div::after {
 }
 
 .head {
-    height: 200px;
 }
 
 .head::after {
