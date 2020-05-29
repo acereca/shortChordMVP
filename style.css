@@ -1,9 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Damion&family=Lobster+Two:ital,wght@1,700&family=Montserrat&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 body {
     font-family: Montserrat;
     margin: 0;
     --accent-color: #b71c1c66;
+    --accent-color-solid: #b71c1c;
+}
+
+button {
+    background-color: var(--accent-color-solid);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.tag {
+    background-color: #daa52099;
+    color: var(--accent-color-solid);
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    width: auto;
+}
+
+.tag.pro::before {
+    content: "\f025";
+    font-family: "Font Awesome 5 Free";
+}
+
+.tag.guitar:before {
+    content: "\f7a6";
+    font-family: "Font Awesome 5 Free";
+}
+
+.tag.keys:before {
+    content: "\f95d";
+    font-family: "Font Awesome 5 Free";
 }
 
 body > div {
@@ -23,11 +61,11 @@ body > div::after {
     width: 52.5px;
     height: 37.5px;
 
-    top: 37.5px;
+    bottom: -37.5px;
     left: 30px;
 
     background-image: url("img/arrow.png");
-    background-position: center;
+    background-position: top;
     background-size: cover;
 }
 .header {
@@ -54,7 +92,7 @@ body > div::after {
 }
 
 .header h1 {
-    font-family: Damion;
+    font-family: "Courgette";
     font-weight: 400;
     font-size: 2.5em;
     padding: 0;
@@ -62,14 +100,77 @@ body > div::after {
 }
 
 .head {
+    width: auto;
+    min-height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "img meta";
 }
 
 .head::after {
-    left: calc(33vw - 52.5px);
+    left: calc(50vw - 52.5px);
 }
 
+.head > img {
+    --size: 15vw;
+    width: var(--size);
+    height: var(--size);
+    border: calc(var(--size) /15) solid var(--accent-color-solid);
+    border-radius: var(--size);
+}
+
+#head-meta {
+    grid-area: meta;
+    min-width: 70vw;
+    margin: 0px 30px;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 50px;
+    grid-template-areas: "name name name" "alter instrument ort";
+}
+#head-meta .name {
+    grid-area: name; 
+    font-size: 1.5em;
+    padding: 10px;
+    width: 100%;
+}
+
+#head-meta .instrument {
+    grid-area: instrument; 
+    display: flex;
+    align-items: flex-start;
+}
+
+#head-meta .ort {
+    grid-area: ort; 
+}
+#head-meta .ort:before {
+    content: "\f3c5";
+    font-family: "Font Awesome 5 Free";
+}
+
+#head-meta .ort .map {
+     position: relative;
+     top: -200px;
+     left: -20px;
+     width: 200px;
+     height: 150px;
+     z-index: 200;
+     border: 5px solid lightgray;
+     border-radius: 5px;
+     box-shadow: 0 5px 5px 0 var(--accent-color);
+     /* display: none; */
+}
+#head-meta .ort:hover .map {
+    display: inline-block;
+}
+
+.description {
+    padding-right: 30px;
+}
 .description::after {
-    left: 66vw;
+    left: 30vw;
 }
 
 .description > div {
@@ -79,22 +180,83 @@ body > div::after {
     align-items: center;
 }
 
-.description iframe,
+.description img,
+.description iframe {
+    border-radius: 5px;
+}
+
 .description img {
     width: 30%;
-    height: calc(30vw / 16 * 9);
+}
+
+.description iframe{
+    width: 33vw;
+    height: calc(33vw / 16 * 9);
 }
 
 .description p {
     width: 60%;
-    margin: 5%;
+    margin: 0;
     text-align: justify;
+}
+
+.description .grid {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.description .grid iframe {
+    width: auto;
+    height: auto;
 }
 
 .footer {
     box-shadow: none;
+    padding: 0px 40px;
 }
 
 .footer::after {
     visibility: hidden;
+}
+
+.footer .booking {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking span {
+    width: 40vw;
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking span * {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.booking h4 ~ * {
+    margin-left: auto;
+    margin-right: 0;
+}
+.footer input,
+.footer select {
+    height: 2rem;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    -moz-appearance: none;
+    font-size: 1rem;
+    /* width: 200px; */
+    max-width: 50%;
+    width: 50%;
+}
+
+.footer select::after {
+    content: " ";
+    background-color: blue;
 }
